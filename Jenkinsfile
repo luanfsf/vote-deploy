@@ -9,7 +9,7 @@ node {
         script {
             catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                 withCredentials([usernamePassword(credentialsId: 'jenkins-github-access-token', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
-                    sh 'git config user.email luanfsf@email.com'
+                    sh 'git config user.email luanfsf@gmail.com'
                     sh 'git config user.name Luan'
                     sh 'cat vote-ui-deployment.yaml'
                     sh "sed -i 's+luanfsf/vote.*+luanfsf/vote:${DOCKERTAG}+g' vote-ui-deployment.yaml"
